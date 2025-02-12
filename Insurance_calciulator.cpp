@@ -101,14 +101,14 @@ double getMultiplier() {
 
 // Function for property damage coverage
 double getPropertyDamageCoverage(double exchangeRate) {
-    cout << "Enter the property damage coverage percentage (greater than 6000): ";
+    cout << "Enter your preferred property damage coverage amount. You have a free limit of GHS6,000.00: ";
     double coverage_percentage;
     
     // Input validation to ensure the value is greater than 6000
     while (!(cin >> coverage_percentage) || coverage_percentage < 6000) {
         cout << "Invalid coverage percentage! Please enter a number greater than 6000: ";
         cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin.ignore(numeric_limits<streamsize>::max());
     }
     
     // Calculate the difference above 6000
@@ -117,7 +117,7 @@ double getPropertyDamageCoverage(double exchangeRate) {
     // Apply the 2% rule if the coverage is above 6000
     double coverage = (difference / exchangeRate) * 0.02;
     
-    cout << "Total Property Damage Coverage: " << coverage << endl;
+    cout << "Total Property Damage Coverage: " << coverage <<" GHC"<< endl;
     
     return coverage;
 }
