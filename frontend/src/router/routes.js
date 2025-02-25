@@ -3,7 +3,9 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Calculator.vue') }
+      { path: '', component: () => import('pages/Home.vue') },
+      { path: 'ind', component: () => import('pages/Calculator.vue') },
+      { path: 'bulk', component: () => import('pages/BulkCalculator.vue') },
     ]
   },
 
