@@ -24,9 +24,9 @@
               <li>✓ Comprehensive property damage coverage</li>
               <li>✓ Instant premium calculation</li>
             </ul>
-          </Card>
+          <!-- </Card>
 
-          <Card class="p-6 shadow-lg">
+          <Card class="p-6 shadow-lg"> -->
             <InsuranceForm />
           </Card>
         </div>
@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { Card } from '@/components/ui/card.vue'
-import InsuranceForm from '@/components/insurance-form.vue'
+import { Card } from 'src/components/ui/card.vue'
+import InsuranceForm from 'src/components/insuranceForm.vue'
 import { Car } from 'lucide-vue-next'
 </script>
