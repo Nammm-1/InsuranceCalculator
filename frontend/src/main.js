@@ -1,5 +1,7 @@
 import { createApp } from 'vue';
 import { Quasar, Notify } from 'quasar';
+import PrimeVue from 'primevue/config';
+import Aura from '@primevue/aura';
 
 // Import Quasar CSS
 import '@quasar/extras/material-icons/material-icons.css';
@@ -30,4 +32,10 @@ app.use(Quasar, {
 });
 
 app.use(router);
+app.use(PrimeVue, {
+  theme: {
+    preset: Aura,
+  }
+});
 app.mount('#app');
+

@@ -48,13 +48,7 @@ taxi,USD,12.5,180,8000,35000</pre>
 
                 <!-- Upload Area -->
                 <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
-                  <input
-                    type="file"
-                    ref="fileInput"
-                    accept=".csv"
-                    class="hidden"
-                    @change="handleFileUpload"
-                  />
+                  <input type="file" ref="fileInput" accept=".csv" class="hidden" @change="handleFileUpload" />
                   <div class="space-y-4">
                     <upload-cloud-icon class="w-12 h-12 text-gray-400 mx-auto" />
                     <div class="space-y-2">
@@ -63,10 +57,8 @@ taxi,USD,12.5,180,8000,35000</pre>
                         Click to select or drag and drop your CSV file here
                       </p>
                     </div>
-                    <button
-                      class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-                      @click="() => fileInput?.click()"
-                    >
+                    <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
+                      @click="() => fileInput?.click()">
                       Select File
                     </button>
                   </div>
@@ -83,11 +75,8 @@ taxi,USD,12.5,180,8000,35000</pre>
                     <check-circle-icon class="w-5 h-5" />
                     <span>File uploaded successfully</span>
                   </div>
-                  <button
-                    class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-                    @click="processFile"
-                    :disabled="processing"
-                  >
+                  <button class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
+                    @click="processFile" :disabled="processing">
                     {{ processing ? 'Processing...' : 'Calculate Premiums' }}
                   </button>
                 </div>
@@ -129,10 +118,8 @@ taxi,USD,12.5,180,8000,35000</pre>
             </div>
 
             <!-- Download Results Button -->
-            <button
-              class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
-              @click="downloadResults"
-            >
+            <button class="w-full px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90"
+              @click="downloadResults">
               Download Results
             </button>
           </div>
@@ -145,20 +132,19 @@ taxi,USD,12.5,180,8000,35000</pre>
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { Upload, UploadCloud, CheckCircle } from 'lucide-vue-next'
-import type { PremiumResult } from '@/stores/insurance'
 
-const fileInput = ref<HTMLInputElement | null>(null)
+const fileInput = ref(null)
 const fileUploaded = ref(false)
 const processing = ref(false)
-const results = ref<PremiumResult[]>([])
-const error = ref<string | null>(null)
+const results = ref([])
+const error = ref(null)
 
 const totalPremium = computed(() => {
   return results.value.reduce((sum, result) => sum + result.premium, 0)
 })
 
-const handleFileUpload = (event: Event) => {
-  const input = event.target as HTMLInputElement
+const handleFileUpload = (event) => {
+  const input = event.target
   if (input.files?.length) {
     const file = input.files[0]
     if (file.type !== 'text/csv' && !file.name.endsWith('.csv')) {
@@ -170,14 +156,14 @@ const handleFileUpload = (event: Event) => {
   }
 }
 
-const formatNumber = (num: number) => {
+const formatNumber = (num) => {
   return num.toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })
 }
 
-const formatVehicleType = (type: string) => {
+const formatVehicleType = (type) => {
   return type.split('_').map(word =>
     word.charAt(0).toUpperCase() + word.slice(1)
   ).join(' ')

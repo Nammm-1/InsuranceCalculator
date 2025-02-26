@@ -1,11 +1,14 @@
+import Calculator from 'pages/newCalculator.vue'
+import BulkCalculator from 'pages/BulkCalculator.vue'
+
 const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Home.vue') },
-      { path: 'ind', component: () => import('pages/Calculator.vue') },
-      { path: 'bulk', component: () => import('pages/BulkCalculator.vue') },
+      { path: '', component: () => import('pages/Landing.vue') },
+      { path: 'ind', component: Calculator },
+      { path: 'bulk-calculator', component: () => import('pages/BulkCalculator.vue') },
     ]
   },
 

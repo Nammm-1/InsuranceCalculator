@@ -24,19 +24,34 @@
               <li>✓ Comprehensive property damage coverage</li>
               <li>✓ Instant premium calculation</li>
             </ul>
-          <!-- </Card>
-
-          <Card class="p-6 shadow-lg"> -->
-            <InsuranceForm />
           </Card>
+
+          <Card class="p-6 shadow-lg">
+
+            <!-- <InsuranceForm /> -->
+          </Card>
+
+          <Card>
+            <template #title>Simple Card</template>
+            <template #content>
+              <p class="m-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae
+                numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis
+                esse, cupiditate neque
+                quas!
+              </p>
+            </template>
+          </Card>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { Card } from 'src/components/ui/card.vue'
-import InsuranceForm from 'src/components/insuranceForm.vue'
+<script setup>
+import Card from 'primevue/card';
+// import InsuranceForm from '@/components/insurance-form.vue'
 import { Car } from 'lucide-vue-next'
+
 </script>
